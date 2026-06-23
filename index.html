@@ -1,124 +1,378 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Spotify UI Clone</title>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
 
+body{
+    background:#000;
+    color:white;
+    min-height:100vh;
+}
 
-</head>
+/* Main Layout */
+.container{
+    display:flex;
+    min-height:calc(100vh - 90px);
+}
 
-<body>
-<link rel="stylesheet" href="spotifyui.css">
+/* Sidebar */
+.sidebar{
+    width:240px;
+    background:#121212;
+    padding:20px;
+    flex-shrink:0;
+}
 
-<div class="container">
+.logo{
+    font-size:32px;
+    font-weight:bold;
+    color:#1DB954;
+    margin-bottom:30px;
+}
 
-    <div class="sidebar">
-        <div class="logo">🎵Spotify</div>
+.menu{
+    list-style:none;
+}
 
-        <ul class="menu">
-            <li>🏡 Home</li>
-            <li>🔍Search</li>
-            <li>📚 Your Library</li>
-            <li>❤️ Liked Songs</li>
-        </ul>
+.menu li{
+    padding:12px 0;
+    color:#b3b3b3;
+    cursor:pointer;
+    font-size:16px;
+}
 
-        <div class="library">
-            <div class="playlist-box">
-                <h4>Create your first playlist</h4>
-                <button>Create Playlist</button>
-            </div>
-        </div>
-    </div>
+.menu li:hover{
+    color:white;
+}
 
-    <div class="main">
+.library{
+    margin-top:30px;
+}
 
-        <div class="topbar">
-            <input type="text" class="search" placeholder="Search songs,albums,artists...">
-            <div class="profile">🙎‍♂️Aayush</div>
-            
-        </div>
+.playlist-box{
+    background:#242424;
+    padding:15px;
+    border-radius:10px;
+    margin-top:15px;
+}
 
-        <h2 class="section-title">Recently Played</h2>
+.playlist-box button{
+    margin-top:10px;
+    padding:10px 15px;
+    border:none;
+    border-radius:20px;
+    cursor:pointer;
+    font-weight:bold;
+}
 
-        <div class="cards">
+/* Main Content */
+.main{
+    flex:1;
+    background:#181818;
+    overflow-y:auto;
+    padding:25px;
+}
 
-            <div class="card">
-                <div class="album"><img src="https://imgs.search.brave.com/UszzEkcE-A0fs0U5dgAoFXYDCJf-BDGvhSV7cfWLoNs/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4t/ZnJvbnQuZnJlZXBp/ay5jb20vaG9tZS9h/bm9uLXJ2bXAvY3Jl/YXRpdmUtc3VpdGUv/YXVkaW8tY3JlYXRp/b24vdmlzdWFscy1z/b25ncy53ZWJw" alt="Album Cover"></div>
-                
-                <h4>Daily Mix 1</h4>
-                <p>Your favorite songs.</p>
-            </div>
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+}
 
-            <div class="card">
-                <div class="album"><img src="https://imgs.search.brave.com/UszzEkcE-A0fs0U5dgAoFXYDCJf-BDGvhSV7cfWLoNs/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4t/ZnJvbnQuZnJlZXBp/ay5jb20vaG9tZS9h/bm9uLXJ2bXAvY3Jl/YXRpdmUtc3VpdGUv/YXVkaW8tY3JlYXRp/b24vdmlzdWFscy1z/b25ncy53ZWJw" alt="Album Cover"></div>
-                
-                <h4>Chill Hits</h4>
-                <p>Relax and enjoy.</p>
-            </div>
+.search{
+    width:350px;
+    max-width:100%;
+    padding:12px;
+    border:none;
+    border-radius:25px;
+    outline:none;
+}
 
-            <div class="card">
-                <div class="album"><img src="https://imgs.search.brave.com/UszzEkcE-A0fs0U5dgAoFXYDCJf-BDGvhSV7cfWLoNs/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4t/ZnJvbnQuZnJlZXBp/ay5jb20vaG9tZS9h/bm9uLXJ2bXAvY3Jl/YXRpdmUtc3VpdGUv/YXVkaW8tY3JlYXRp/b24vdmlzdWFscy1z/b25ncy53ZWJw" alt="Album Cover"></div>
-                
-                <h4>Rock Classics</h4>
-                <p>Best rock songs ever.</p>
-            </div>
+.profile{
+    background:#000;
+    padding:10px 18px;
+    border-radius:25px;
+    white-space:nowrap;
+}
 
-            <div class="card">
-                <div class="album"><img src="https://imgs.search.brave.com/UszzEkcE-A0fs0U5dgAoFXYDCJf-BDGvhSV7cfWLoNs/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4t/ZnJvbnQuZnJlZXBp/ay5jb20vaG9tZS9h/bm9uLXJ2bXAvY3Jl/YXRpdmUtc3VpdGUv/YXVkaW8tY3JlYXRp/b24vdmlzdWFscy1z/b25ncy53ZWJw" alt="Album Cover"></div>
-                <h4>Workout Mix</h4>
-                <p>High-energy tracks.</p>
-            </div>
+.section-title{
+    margin:30px 0 20px;
+}
 
-            <div class="card">
-                <div class="album"><img src="https://imgs.search.brave.com/UszzEkcE-A0fs0U5dgAoFXYDCJf-BDGvhSV7cfWLoNs/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4t/ZnJvbnQuZnJlZXBp/ay5jb20vaG9tZS9h/bm9uLXJ2bXAvY3Jl/YXRpdmUtc3VpdGUv/YXVkaW8tY3JlYXRp/b24vdmlzdWFscy1z/b25ncy53ZWJw" alt="Album Cover"></div>
-                
-                <h4>Top Global</h4>
-                <p>Trending worldwide.</p>
-            </div>
+/* Cards */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:20px;
+}
 
-            <div class="card">
-                <div class="album"><img src="https://imgs.search.brave.com/UszzEkcE-A0fs0U5dgAoFXYDCJf-BDGvhSV7cfWLoNs/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4t/ZnJvbnQuZnJlZXBp/ay5jb20vaG9tZS9h/bm9uLXJ2bXAvY3Jl/YXRpdmUtc3VpdGUv/YXVkaW8tY3JlYXRp/b24vdmlzdWFscy1z/b25ncy53ZWJw" alt="Album Cover"></div>
-                
-                <h4>Focus Music</h4>
-                <p>Stay productive.</p>
-            </div>
+.card{
+    background:#242424;
+    padding:15px;
+    border-radius:10px;
+    transition:.3s;
+    cursor:pointer;
+}
 
-        </div>
+.card:hover{
+    background:#333;
+    transform:translateY(-5px);
+}
 
-    </div>
+.album{
+    width:100%;
+    height:180px;
+    overflow:hidden;
+    border-radius:8px;
+}
 
-</div>
+.album img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    border-radius:8px;
+    transition:0.3s ease;
+}
 
-<div class="player">
+.card:hover .album img{
+    transform:scale(1.05);
+}
 
-    <div class="song">
-        <div class="song-cover"></div>
-        <div>
-            <h4>Song Name</h4>
-            <small>Artist Name</small>
-        </div>
-    </div>
+.card h4{
+    margin-top:12px;
+}
 
-    <div class="controls">
-        <div>
-            <button>⏮</button>
-            <button>▶</button>
-            <button>⏭</button>
-        </div>
+.card p{
+    color:#b3b3b3;
+    font-size:14px;
+    margin-top:5px;
+}
 
-        <div class="progress">
-            <div class="progress-bar"></div>
-        </div>
-    </div>
+/* Player */
+.player{
+    height:90px;
+    background:#181818;
+    border-top:1px solid #333;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 25px;
+    gap:20px;
+}
 
-    <div>
-        <div class="volume">
-            <div class="volume-bar"></div>
-        </div>
-    </div>
+.song{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
 
-</div>
+.song-cover{
+    width:55px;
+    height:55px;
+    background:#555;
+    border-radius:5px;
+}
 
-</body>
-</html>
+.controls{
+    text-align:center;
+}
+
+.controls button{
+    background:none;
+    border:none;
+    color:white;
+    font-size:22px;
+    margin:0 12px;
+    cursor:pointer;
+}
+
+.progress{
+    width:400px;
+    max-width:100%;
+    height:5px;
+    background:#555;
+    border-radius:5px;
+    margin-top:10px;
+}
+
+.progress-bar{
+    width:35%;
+    height:100%;
+    background:#1DB954;
+    border-radius:5px;
+}
+
+.volume{
+    width:150px;
+    height:5px;
+    background:#555;
+    border-radius:5px;
+}
+
+.volume-bar{
+    width:70%;
+    height:100%;
+    background:#1DB954;
+    border-radius:5px;
+}
+
+/* =========================
+   LARGE TABLETS
+========================= */
+@media (max-width: 992px){
+
+    .sidebar{
+        width:200px;
+    }
+
+    .search{
+        width:250px;
+    }
+
+    .progress{
+        width:250px;
+    }
+
+    .volume{
+        width:100px;
+    }
+}
+
+/* =========================
+   TABLETS
+========================= */
+@media (max-width: 768px){
+
+    .sidebar{
+        width:180px;
+        padding:15px;
+    }
+
+    .logo{
+        font-size:24px;
+    }
+
+    .cards{
+        grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+    }
+
+    .search{
+        width:200px;
+    }
+
+    .player{
+        padding:10px;
+    }
+
+    .progress{
+        width:180px;
+    }
+
+    .volume{
+        width:80px;
+    }
+}
+
+/* =========================
+   MOBILE PHONES
+========================= */
+@media (max-width: 576px){
+
+    .container{
+        flex-direction:column;
+        min-height:auto;
+    }
+
+    .sidebar{
+        width:100%;
+        text-align:center;
+    }
+
+    .logo{
+        margin-bottom:15px;
+    }
+
+    .menu{
+        display:flex;
+        justify-content:center;
+        flex-wrap:wrap;
+        gap:15px;
+    }
+
+    .menu li{
+        padding:5px;
+    }
+
+    .library{
+        margin-top:15px;
+    }
+
+    .topbar{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .search{
+        width:100%;
+    }
+
+    .profile{
+        align-self:center;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .album{
+        height:220px;
+    }
+
+    .player{
+        flex-direction:column;
+        height:auto;
+        padding:15px;
+    }
+
+    .song{
+        justify-content:center;
+    }
+
+    .controls{
+        width:100%;
+    }
+
+    .progress{
+        width:100%;
+    }
+
+    .volume{
+        width:100%;
+    }
+}
+
+/* =========================
+   EXTRA SMALL PHONES
+========================= */
+@media (max-width: 350px){
+
+    .logo{
+        font-size:20px;
+    }
+
+    .main{
+        padding:15px;
+    }
+
+    .card{
+        padding:10px;
+    }
+
+    .album{
+        height:180px;
+    }
+}
